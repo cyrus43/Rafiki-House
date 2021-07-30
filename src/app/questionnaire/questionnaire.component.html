@@ -1,0 +1,34 @@
+<div class="action-btns">
+    <button (click)="reload()"  mat-raised-button color="primary">refresh</button>
+    <button (click)="logout()" mat-raised-button color="warn"> 
+       Logout
+    </button>
+</div>
+<div  class="questions">
+    <h1>Welcome, <span *ngIf="loadingUsername">loading...</span> {{name}}</h1>
+    <h2>Please answer the following questions</h2>
+    <h2 *ngIf="loading">loading...</h2>
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let question of filteredQuestions" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{question.description}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Your {{question.text}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="text-answers">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter your {{question.description}}</mat-label>
+                        <input matInput [(ngModel)]="answer">
+                    </mat-form-field>
+                    <button [disabled]="busy" mat-raised-button color="primary" class="login-field"
+                        (click)="answerQuestion(question, answer)">
+                        <span *ngIf="!busy">Answer</span>
+                        <span *ngIf="busy">submitting...</span>
+                    </button>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+</div>

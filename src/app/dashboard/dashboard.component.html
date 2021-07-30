@@ -1,0 +1,28 @@
+<mat-sidenav-container>
+    <mat-sidenav opened mode="side">
+        <div class="nav-list">
+            <h2>Questionnaire</h2>
+            <div class="logo">
+                <img src="../../../assets/img/logo.png" alt="app-logo" />
+            </div>
+
+            <!-- TODO: Add router link here -->
+            <h2 class="heading-top-dashboard"><a [routerLink]="['home']">Dashboard</a></h2>
+            <hr class="heading-line-user" />
+
+            <mat-nav-list>
+                <h3 class="heading-user-management">Full stack Questionnaire</h3>
+                <a mat-list-item [routerLink]="['questionnaire']" [routerLinkActive]="['active']">Questionnaire</a>
+            </mat-nav-list>
+            <hr class="heading-line-merchant" />
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!-- <div class="logout-button">
+            <a class="logout" mat-raised-button color="warn" (click)="logout()">
+                Logout
+            </a>
+        </div> -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

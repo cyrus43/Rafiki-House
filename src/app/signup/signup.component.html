@@ -1,0 +1,41 @@
+<div class="full-page">
+    <mat-card class="login-card">
+        <img src="../../assets/img/logo.png" class="logo" alt="" />
+        <mat-card-title> Signup </mat-card-title>
+        <p>Already Have an Account?<a [routerLink]="['/login']">Login</a></p>
+        <mat-card-content>
+            <form (ngSubmit)='signup()'>
+                <mat-form-field class="login-field" appearance="outline">
+                    <input matInput placeholder="Your Name" name="name" [(ngModel)]="name" type="text" required />
+                </mat-form-field>
+                <mat-form-field class="login-field" appearance="outline">
+                    <input matInput placeholder="Email" name="email" [(ngModel)]="email" type="email" required />
+                </mat-form-field>
+                <mat-form-field class="login-field" appearance="outline">
+                    <input matInput placeholder="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber" type="text" required />
+                </mat-form-field>
+                <mat-form-field class="login-field" appearance="outline">
+                    <input matInput placeholder="Password" name="password" [(ngModel)]="password1" type="password"
+                        required />
+                </mat-form-field>
+                <!-- TODO: add repeat password field -->
+                <mat-form-field class="login-field" appearance="outline">
+                    <input matInput placeholder="repeat password" name="password2" [(ngModel)]="password2" type="password" required />
+                </mat-form-field>
+                <div *ngIf="loginError" class="loginError">
+                    Signup failed. Please try again
+                </div>
+                <!-- <div *ngIf="repeatPassword" class="loginError">
+                   The Passwords do not match, try again
+                </div> -->
+                <mat-card-actions>
+                    <button mat-raised-button color="warn" class="login-field" type="submit">
+                        Signup
+                    </button>
+                </mat-card-actions>
+            </form>
+
+        </mat-card-content>
+
+    </mat-card>
+</div>

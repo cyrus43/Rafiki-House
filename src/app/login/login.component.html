@@ -1,0 +1,30 @@
+<div class="full-page">
+    <mat-card class="login-card">
+        <img src="../../assets/img/logo.png" class="logo" alt="" />
+        <mat-card-title> Login </mat-card-title>
+        <p>Dont Have an Account?<a [routerLink]="['/signup']">Signup</a></p>
+        <mat-card-content>
+            <form (ngSubmit)='login()'>
+                <mat-form-field class="login-field" appearance="outline">
+                    <input matInput placeholder="Email" name="email" [(ngModel)]="email" type="email" required />
+                </mat-form-field>
+                <mat-form-field class="login-field" appearance="outline">
+                    <input matInput placeholder="Password" name="password" [(ngModel)]="password" type="password"
+                        required />
+                </mat-form-field>
+
+                <div *ngIf="loginError" class="loginError">
+                    Login failed. Please try again
+                </div>
+                <mat-card-actions>
+                    <button [disabled]="busy" mat-raised-button color="warn" class="login-field" type="submit">
+                        Login
+                        <span *ngIf="busy">loading...</span>
+                    </button>
+                </mat-card-actions>
+            </form>
+
+        </mat-card-content>
+
+    </mat-card>
+</div>
