@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { AuthService } from '../auth.service';
 //not disabled
+//Raw content
 
 @Component({
   selector: 'app-login',
